@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Brain wave</h1>
+        <p>This program creates 100 SVG paths by generating coordinates based on user input or random values, using bezier curves. The program also includes a function to combine all the paths into one for downloading.
+            <br>
+            The program uses vanilla JavaScript.</p>
+        <form action="post" id="containerForm">
+            <div title="this defines the starting point of the Bézier curve by defining its initial position at x=value1 and y=value2.">
+                <label for="value1">Start x</label>
+                <input type="number" name="value1" id="value1"><br>
+                <label for="value2">Start y</label>
+                <input type="number" name="value2" id="value2"><br>
+            </div>
+            <div title="this defines the first control point and the end point of the Bézier curve. The first control point has a position x=value1 and y=value2, while the end point has a position x=value3 and y=value4.">
+                <label for="value3">check x</label>
+                <input type="number" name="value3" id="value3"><br>
+                <label for="value4">check y</label>
+                <input type="number" name="value4" id="value4"><br>
+                <label for="value5">end x</label>
+                <input type="number" name="value5" id="value5"><br>
+                <label for="value6">end y</label>
+                <input type="number" name="value6" id="value6"><br>
+            </div>
+            <div title="this defines the end point of the second Bézier curve. In this case the control point is chosen automatically by the browser to create a smooth and continuous Bézier curve from the end of the first Bézier curve. The end point has a position x=value1 and y=value2.">
+                <label for="value7">final x</label>
+                <input type="number" name="value7" id="value7"><br>
+                <label for="value8">final y</label>
+                <input type="number" name="value8" id="value8"><br>
+            </div>
+            
+            <button type="button" id="btnGenerer">generate</button>
+            <button type="button" id="btnRandom">random</button>
+            <button id="btnDownload">download</button>
+
+        </form>
+    </div>
+    <div class="containerSVG">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%"><path d="M 66 325 Q 85 15, 37 50 T 86 490M 71 330 Q 90 20, 37 55 T 91 495M 76 335 Q 95 25, 37 60 T 96 500M 81 340 Q 100 30, 37 65 T 101 505M 86 345 Q 105 35, 37 70 T 106 510M 91 350 Q 110 40, 37 75 T 111 515M 96 355 Q 115 45, 37 80 T 116 520M 101 360 Q 120 50, 37 85 T 121 525M 106 365 Q 125 55, 37 90 T 126 530M 111 370 Q 130 60, 37 95 T 131 535M 116 375 Q 135 65, 37 100 T 136 540M 121 380 Q 140 70, 37 105 T 141 545M 126 385 Q 145 75, 37 110 T 146 550M 131 390 Q 150 80, 37 115 T 151 555M 136 395 Q 155 85, 37 120 T 156 560M 141 400 Q 160 90, 37 125 T 161 565M 146 405 Q 165 95, 37 130 T 166 570M 151 410 Q 170 100, 37 135 T 171 575M 156 415 Q 175 105, 37 140 T 176 580M 161 420 Q 180 110, 37 145 T 181 585M 166 425 Q 185 115, 37 150 T 186 590M 171 430 Q 190 120, 37 155 T 191 595M 176 435 Q 195 125, 37 160 T 196 600M 181 440 Q 200 130, 37 165 T 201 605M 186 445 Q 205 135, 37 170 T 206 610M 191 450 Q 210 140, 37 175 T 211 615M 196 455 Q 215 145, 37 180 T 216 620M 201 460 Q 220 150, 37 185 T 221 625M 206 465 Q 225 155, 37 190 T 226 630M 211 470 Q 230 160, 37 195 T 231 635M 216 475 Q 235 165, 37 200 T 236 640M 221 480 Q 240 170, 37 205 T 241 645M 226 485 Q 245 175, 37 210 T 246 650M 231 490 Q 250 180, 37 215 T 251 655M 236 495 Q 255 185, 37 220 T 256 660M 241 500 Q 260 190, 37 225 T 261 665M 246 505 Q 265 195, 37 230 T 266 670M 251 510 Q 270 200, 37 235 T 271 675M 256 515 Q 275 205, 37 240 T 276 680M 261 520 Q 280 210, 37 245 T 281 685M 266 525 Q 285 215, 37 250 T 286 690M 271 530 Q 290 220, 37 255 T 291 695M 276 535 Q 295 225, 37 260 T 296 700M 281 540 Q 300 230, 37 265 T 301 705M 286 545 Q 305 235, 37 270 T 306 710M 291 550 Q 310 240, 37 275 T 311 715M 296 555 Q 315 245, 37 280 T 316 720M 301 560 Q 320 250, 37 285 T 321 725M 306 565 Q 325 255, 37 290 T 326 730M 311 570 Q 330 260, 37 295 T 331 735M 316 575 Q 335 265, 37 300 T 336 740M 321 580 Q 340 270, 37 305 T 341 745M 326 585 Q 345 275, 37 310 T 346 750M 331 590 Q 350 280, 37 315 T 351 755M 336 595 Q 355 285, 37 320 T 356 760M 341 600 Q 360 290, 37 325 T 361 765M 346 605 Q 365 295, 37 330 T 366 770M 351 610 Q 370 300, 37 335 T 371 775M 356 615 Q 375 305, 37 340 T 376 780M 361 620 Q 380 310, 37 345 T 381 785M 366 625 Q 385 315, 37 350 T 386 790M 371 630 Q 390 320, 37 355 T 391 795M 376 635 Q 395 325, 37 360 T 396 800M 381 640 Q 400 330, 37 365 T 401 805M 386 645 Q 405 335, 37 370 T 406 810M 391 650 Q 410 340, 37 375 T 411 815M 396 655 Q 415 345, 37 380 T 416 820M 401 660 Q 420 350, 37 385 T 421 825M 406 665 Q 425 355, 37 390 T 426 830M 411 670 Q 430 360, 37 395 T 431 835M 416 675 Q 435 365, 37 400 T 436 840M 421 680 Q 440 370, 37 405 T 441 845M 426 685 Q 445 375, 37 410 T 446 850M 431 690 Q 450 380, 37 415 T 451 855M 436 695 Q 455 385, 37 420 T 456 860M 441 700 Q 460 390, 37 425 T 461 865M 446 705 Q 465 395, 37 430 T 466 870M 451 710 Q 470 400, 37 435 T 471 875M 456 715 Q 475 405, 37 440 T 476 880M 461 720 Q 480 410, 37 445 T 481 885M 466 725 Q 485 415, 37 450 T 486 890M 471 730 Q 490 420, 37 455 T 491 895M 476 735 Q 495 425, 37 460 T 496 900M 481 740 Q 500 430, 37 465 T 501 905M 486 745 Q 505 435, 37 470 T 506 910M 491 750 Q 510 440, 37 475 T 511 915M 496 755 Q 515 445, 37 480 T 516 920M 501 760 Q 520 450, 37 485 T 521 925M 506 765 Q 525 455, 37 490 T 526 930M 511 770 Q 530 460, 37 495 T 531 935M 516 775 Q 535 465, 37 500 T 536 940M 521 780 Q 540 470, 37 505 T 541 945M 526 785 Q 545 475, 37 510 T 546 950M 531 790 Q 550 480, 37 515 T 551 955M 536 795 Q 555 485, 37 520 T 556 960M 541 800 Q 560 490, 37 525 T 561 965M 546 805 Q 565 495, 37 530 T 566 970M 551 810 Q 570 500, 37 535 T 571 975M 556 815 Q 575 505, 37 540 T 576 980M 561 820 Q 580 510, 37 545 T 581 985" fill="none" stroke="#000000" stroke-width="1"/></svg>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
